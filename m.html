@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Miguel 💗</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #fce4ec, #ff80ab);
+            color: black;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: #ff4081;
+            animation: fadeInText 2s forwards;
+        }
+
+        p {
+            font-size: 18px;
+            color: black;
+            line-height: 1.6;
+            max-width: 90%;
+            margin: 0 auto;
+            animation: fadeInText 2s forwards;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff4081;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, font-size 0.3s;
+        }
+
+        button:hover {
+            background-color: #e91e63;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #si {
+            font-size: 20px;
+        }
+
+        #mensajeNo {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>💗 Para Miguel 💗</h2>
+        <p id="mensaje">
+            Miguel💗, desde que te conocí, cada día tiene un brillo especial.  
+            No sé si es tu sonrisa o tus ojitos tan lindos 💗, pero amo todo de ti.  
+            Solo quería decirte que has hecho que mi corazón te elija sin dudarlo 💗.
+        </p>
+        <br>
+        <button onclick="mostrarSiguiente()">Sigue leyendo mi amor 💖</button>
+    </div>
+
+    <div class="container hidden" id="segundaSeccion">
+        <h2>Se que aún somos jóvenes 💞</h2>
+        <p>Pero yo me enamoré de ti desde el primer día que hablamos. De verdad, te amo mi amor💗.</p>
+        <button onclick="mostrarSabes()">Sabes mi amor</button>
+    </div>
+
+    <div class="container hidden" id="terceraSeccion">
+        <h2>Te amo más que nada 💗</h2>
+        <p>¡Eres el niño más bonito que he conocido! Quiero que seas mi novio, esposo y padre de nuestros hijos 💗.</p>
+        <button onclick="mostrarNoOlvides()">No olvides que</button>
+    </div>
+
+    <div class="container hidden" id="cuartaSeccion">
+        <h2>No olvides mi amor 💖</h2>
+        <p>No olvides que me debes un hijito igualito a ti con tus ojitos 🥺💗.</p>
+        <button onclick="mostrarPorEso()">Por eso te pido</button>
+    </div>
+
+    <div class="container hidden" id="quintaSeccion">
+        <h2>¿Quieres casarte conmigo? 💗</h2>
+        <p>Sabes, eres el único que necesito en mi vida. ¿Aceptas casarte conmigo?</p>
+        <button id="no" onclick="rechazar()">No</button>
+        <button id="si" onclick="aceptar()">Sí</button>
+        <p id="mensajeNo" class="hidden">¿Por qué no? 😭</p>
+    </div>
+
+    <div class="container hidden" id="final">
+        <h2 id="mensajeFinal">Lo sabíaaaa 💗🥺</h2>
+        <p>Sabía que aceptarías, ¡te amo muchísimo!</p>
+    </div>
+
+    <script>
+        let tamañoSi = 20;
+
+        function mostrarSiguiente() {
+            document.querySelector(".container").classList.add("hidden");
+            document.getElementById("segundaSeccion").classList.remove("hidden");
+        }
+
+        function mostrarSabes() {
+            document.getElementById("segundaSeccion").classList.add("hidden");
+            document.getElementById("terceraSeccion").classList.remove("hidden");
+        }
+
+        function mostrarNoOlvides() {
+            document.getElementById("terceraSeccion").classList.add("hidden");
+            document.getElementById("cuartaSeccion").classList.remove("hidden");
+        }
+
+        function mostrarPorEso() {
+            document.getElementById("cuartaSeccion").classList.add("hidden");
+            document.getElementById("quintaSeccion").classList.remove("hidden");
+        }
+
+        function rechazar() {
+            document.getElementById("mensajeNo").classList.remove("hidden");
+            tamañoSi += 5;
+            document.getElementById("si").style.fontSize = tamañoSi + "px";
+        }
+
+        function aceptar() {
+            document.getElementById("quintaSeccion").classList.add("hidden");
+            document.getElementById("final").classList.remove("hidden");
+            document.getElementById("mensajeFinal").innerText = "¡Sabía que aceptarías mi amor 💗 te amoooooo💗!";
+        }
+    </script>
+
+</body>
+</html>
